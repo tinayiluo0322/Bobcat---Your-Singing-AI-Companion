@@ -15,15 +15,10 @@ def main():
     udio_token = udio_api_key
     # Define context for generating music details
     context = (
-        "Today was just one of those days where everything boiled over. I woke up already feeling off, "
-        "and then it hit me—my phone buzzed with messages that made my heart sink. My boyfriend decided to "
-        "break up with me, out of nowhere, and the worst part? I found out he’d been seeing someone else behind "
-        "my back. The betrayal stung more than I thought it could. I felt "
-        "this mix of anger and hurt building up inside, and it was almost impossible to focus on anything else. "
-        "I tried talking to a friend, but even that didn’t help much. Every time I replayed it in my mind, the "
-        "frustration bubbled up again. I felt like I couldn’t sit still; I wanted to scream, to confront him, to do "
-        "anything to get rid of that gnawing feeling. It was just a day where everything felt wrong, and I was left "
-        "wondering how someone I trusted could turn out to be so different from what I believed."
+        "I had such a fantastic day today! Everything seemed to go right, and I couldn’t stop smiling. "
+        "I finally finished a project I’ve been working on for weeks, and my boss praised my efforts. "
+        "To celebrate, we had a little party at work, complete with cake and laughter while playing my favorite singer Coldplay!. "
+        "I feel so full of energy and happiness right now, like I could dance all night! "
     )
 
     # Generate the prompt, singer name, and music genre based on the context
@@ -31,12 +26,12 @@ def main():
     
     # Display generated details
     if generated_prompt and singer_name and music_genre:
-        print("Generated Prompt: Minimize the song generation time. ", generated_prompt)
+        print("Generated Prompt: ", generated_prompt)
         print("Singer Name:", singer_name)
         print("Music Genre:", music_genre)
         
         # Combine details for song generation
-        gpt_description_prompt = f"Limit the song generated to 30 seconds in length. The song should feature {singer_name} in the style of {music_genre}. {generated_prompt}"
+        gpt_description_prompt = f"The song should feature the singing voice closest to {singer_name} in the style of {music_genre}. {generated_prompt}. Limit the song generated to be as shortest in length as possible."
 
         # Step 1: Start the song generation
         workId = generate_song_request(udio_token, generated_prompt, gpt_description_prompt)

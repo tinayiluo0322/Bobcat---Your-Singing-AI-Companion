@@ -14,15 +14,16 @@ def generate_music_details(context, open_ai_key):
     # Define the prompt to send to the API
     prompt = (
         "Analyze the following context to generate a music prompt 2-3 sentences in length that reflects the emotional experience described. "
-        "Extract the singer's name if mentioned; "
-        "if not mentioned, use a popular singer's name that fits the style of the music and sentiment of the song. "
+        "If any popular singer/band's name is mentioned in any positive context, use that as the singer name extracted (Singer_Name); if no singer is mentioned, select a popular singer (could be any gender) whose singing voice aligns with the emotions and genre suggested by the user's mood. "
+        "Aim for a diverse range of artists across different genres to reflect the mood accurately, avoiding overused selections. "
         "Determine a suitable music genre or style based on the emotions conveyed.\n\n"
         f"Context: {context}\n\n"
         "Output Format:\n"
         "Prompt: {Insert Prompt here}\n"
-        "Singer_Name: {Insert Singer_Name here} (if not mentioned, use a popular singer's name that is suitable)\n"
+        "Singer_Name: {Insert Singer_Name here} (if not mentioned, use a popular singer's name that is suitable for the song style)\n"
         "Music_genre: {Insert Music_genre here}"
-    )
+)
+
 
     # Define the API endpoint
     url = "https://api.openai.com/v1/chat/completions"

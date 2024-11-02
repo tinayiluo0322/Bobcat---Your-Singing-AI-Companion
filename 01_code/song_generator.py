@@ -38,7 +38,8 @@ def poll_song_status(api_token, workId, interval=10):
     headers = {
         "Authorization": f"Bearer {api_token}"
     }
-
+    start_time = time.time()  # Record the start time
+    print("Song generation is in progress...")
     while True:
         # Send a GET request to check the status
         response = requests.get(f"{url}?workId={workId}", headers=headers)
@@ -50,9 +51,10 @@ def poll_song_status(api_token, workId, interval=10):
                 audio_url = data["response_data"][0]["audio_url"]
                 print("Song generation complete!")
                 print("Audio URL:", audio_url)
+                end_time = time.time()  # Record the end time
+                total_time = end_time - start_time  # Calculate total time taken
+                print("Total time to generate the song:", round(total_time, 2), "seconds")
                 return audio_url
-            else:
-                print("Song generation is still in progress. Checking again in", interval, "seconds...")
         else:
             print("Failed to retrieve the song status. Status code:", response.status_code)
             print("Error:", response.text)
