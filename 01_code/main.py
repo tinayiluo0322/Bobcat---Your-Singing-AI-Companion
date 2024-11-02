@@ -18,7 +18,7 @@ def main():
         "Today was just one of those days where everything boiled over. I woke up already feeling off, "
         "and then it hit me—my phone buzzed with messages that made my heart sink. My boyfriend decided to "
         "break up with me, out of nowhere, and the worst part? I found out he’d been seeing someone else behind "
-        "my back. The betrayal stung more than I thought it could, so I decided to play some Olivia Rodrigo. I felt "
+        "my back. The betrayal stung more than I thought it could. I felt "
         "this mix of anger and hurt building up inside, and it was almost impossible to focus on anything else. "
         "I tried talking to a friend, but even that didn’t help much. Every time I replayed it in my mind, the "
         "frustration bubbled up again. I felt like I couldn’t sit still; I wanted to scream, to confront him, to do "
@@ -31,12 +31,12 @@ def main():
     
     # Display generated details
     if generated_prompt and singer_name and music_genre:
-        print("Generated Prompt:", generated_prompt)
+        print("Generated Prompt: Minimize the song generation time. ", generated_prompt)
         print("Singer Name:", singer_name)
         print("Music Genre:", music_genre)
         
         # Combine details for song generation
-        gpt_description_prompt = f"The song should feature {singer_name} in the style of {music_genre}. {generated_prompt}"
+        gpt_description_prompt = f"Limit the song generated to 30 seconds in length. The song should feature {singer_name} in the style of {music_genre}. {generated_prompt}"
 
         # Step 1: Start the song generation
         workId = generate_song_request(udio_token, generated_prompt, gpt_description_prompt)

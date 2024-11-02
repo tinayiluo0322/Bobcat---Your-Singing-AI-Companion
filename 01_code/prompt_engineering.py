@@ -13,15 +13,15 @@ def generate_music_details(context, open_ai_key):
 
     # Define the prompt to send to the API
     prompt = (
-        "Analyze the following context to generate a music prompt that reflects the emotional experience described. "
-        "The generated song should have a maximum length of 30 seconds. Extract the singer's name if mentioned; "
+        "Analyze the following context to generate a music prompt 2-3 sentences in length that reflects the emotional experience described. "
+        "Extract the singer's name if mentioned; "
         "if not mentioned, use a popular singer's name that fits the style of the music and sentiment of the song. "
         "Determine a suitable music genre or style based on the emotions conveyed.\n\n"
         f"Context: {context}\n\n"
         "Output Format:\n"
         "Prompt: {Insert Prompt here}\n"
         "Singer_Name: {Insert Singer_Name here} (if not mentioned, use a popular singer's name that is suitable)\n"
-        "Music_genre: {Insert Music_genre here} (maximum length: 30 seconds)"
+        "Music_genre: {Insert Music_genre here}"
     )
 
     # Define the API endpoint
