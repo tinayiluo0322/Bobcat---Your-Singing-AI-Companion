@@ -7,7 +7,10 @@ import requests
 # Set up your OpenAI API key
 openai.api_key = "your_openai_api_key"
 
-def generate_music_details(context):
+def generate_music_details(context, open_ai_key):
+
+    openai.api_key = open_ai_key
+
     # Define the prompt to send to the API
     prompt = (
         "Analyze the following context to generate a music prompt that reflects the emotional experience described. "
@@ -16,9 +19,9 @@ def generate_music_details(context):
         "Determine a suitable music genre or style based on the emotions conveyed.\n\n"
         f"Context: {context}\n\n"
         "Output Format:\n"
-        "- Prompt: {Insert Prompt here}\n"
-        "- Singer_Name: {Insert Singer_Name here} (if not mentioned, use a popular singer's name that is suitable)\n"
-        "- Music_genre: {Insert Music_genre here} (maximum length: 30 seconds)"
+        "Prompt: {Insert Prompt here}\n"
+        "Singer_Name: {Insert Singer_Name here} (if not mentioned, use a popular singer's name that is suitable)\n"
+        "Music_genre: {Insert Music_genre here} (maximum length: 30 seconds)"
     )
 
     # Define the API endpoint
@@ -47,9 +50,9 @@ def generate_music_details(context):
         response_content = response_data['choices'][0]['message']['content']
         
         # Extract the values from the response content
-        prompt_line = next(line for line in response_content.split('\n') if line.startswith('- Prompt:')).replace('- Prompt: ', '').strip()
-        singer_name_line = next(line for line in response_content.split('\n') if line.startswith('- Singer_Name:')).replace('- Singer_Name: ', '').strip()
-        music_genre_line = next(line for line in response_content.split('\n') if line.startswith('- Music_genre:')).replace('- Music_genre: ', '').strip()
+        prompt_line = next(line for line in response_content.split('\n') if line.startswith('Prompt:')).replace('Prompt: ', '').strip()
+        singer_name_line = next(line for line in response_content.split('\n') if line.startswith('Singer_Name:')).replace('Singer_Name: ', '').strip()
+        music_genre_line = next(line for line in response_content.split('\n') if line.startswith('Music_genre:')).replace('Music_genre: ', '').strip()
         
         # Return the extracted values
         return prompt_line, singer_name_line, music_genre_line
