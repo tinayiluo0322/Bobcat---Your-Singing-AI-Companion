@@ -1,5 +1,5 @@
 import os
-from pathlib import Path
+import tempfile
 import pygame
 import time
 from dotenv import load_dotenv
@@ -10,7 +10,6 @@ class ResponseToVoice:
     def __init__(self):
         load_dotenv()
         self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-        self.output_file = "speech_output.mp3"
         pygame.mixer.init()
 
     def read_text(self, text):
@@ -24,10 +23,10 @@ class ResponseToVoice:
                 input=text,
             )
 
-            if os.path.exists(self.output_file):
-                os.remove(self.output_file)
-
-            response.stream_to_file(self.output_file)
+            # Create a temporary file to avoid access issues
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as tmp_file:
+                self.output_file = tmp_file.name
+                response.stream_to_file(self.output_file)
 
             print("Playing audio...")
             pygame.mixer.music.load(self.output_file)
@@ -36,8 +35,11 @@ class ResponseToVoice:
             while pygame.mixer.music.get_busy():
                 time.sleep(0.1)
 
-            if os.path.exists(self.output_file):
-                os.remove(self.output_file)
+            # Delay to ensure the file is no longer in use
+            time.sleep(1)  # Adjust as needed
+
+            # No file deletion logic since we want to keep the file
+            print(f"Audio file is kept at: {self.output_file}")
 
             return True
         except Exception as e:
