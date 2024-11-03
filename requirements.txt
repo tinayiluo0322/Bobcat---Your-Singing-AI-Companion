@@ -6,3 +6,6 @@ pydub
 pyaudio
 SpeechRecognition
 pygame
+deepface
+numpy
+opencv-python
