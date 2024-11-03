@@ -7,6 +7,8 @@ Welcome to Bobcat, your personal, artistic, AI-powered friend who listens, respo
 ## Project Overview
 
 Bobcat is designed as a portable, interactive AI that fills the gap between technology and human connection. Built with Raspberry Pi and housed in a 3D-printed shell, Bobcat is more than just a chatbot; it’s a friend who understands, sings, and responds to your emotions through personalized songs and conversations.
+![image](https://github.com/user-attachments/assets/96a1a0e8-409f-4823-b636-220d501afbb3)
+
 
 ## Features
 
