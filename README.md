@@ -4,7 +4,7 @@ Bobcat is not just a gadget—it's your personal, empathetic AI friend that list
 
 ![bobcat logo (2)](https://github.com/user-attachments/assets/57a96817-8771-4aee-a4e5-2e4d1502c63d)
 
-## Overview
+## [Overview](https://github.com/afraa-n/AI_Hackathon/blob/main/Introducing%20Bobcat%20The%20Singing%20AI%20Companion%20Friend.pdf)
 
 Bobcat bridges the gap between practical tech and human warmth, delivering real-time, personalized emotional support through song and conversation. Packaged in a charming 3D-printed shell, it represents the intersection of creative AI, empathy, and user-centric design.
 
@@ -24,12 +24,6 @@ Bobcat bridges the gap between practical tech and human warmth, delivering real-
 - **Audio Core HAT WM8060**: Delivers high-quality sound for an immersive experience.
 - **Integrated Microphone and Speakers**: Enable voice interaction and audio feedback.
 - **Lithium Battery Module**: Ensures portability and long-lasting operation.
-  
-![8824226c-7df4-4deb-801f-a5d7bec6c1b3](https://github.com/user-attachments/assets/f6d59a7f-ecca-4b50-bf5b-1b0ae319314c)
-
-
-
-
 
 ### Software Stack
 - **DeepFace**: Facial recognition for real-time mood analysis.
