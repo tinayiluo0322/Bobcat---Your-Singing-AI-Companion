@@ -37,6 +37,9 @@ Bobcat utilizes:
 - **Text-to-Speech (TTS-1-HD)** for expressive vocal output.
 - **UDIO** for dynamic song generation with mood-reflective lyrics and melodies.
 
+## Overview Project Pipeline
+![CI_CD pipeline llm_RAG (1)](https://github.com/user-attachments/assets/28ea490d-214c-4824-9dc9-b766fe02bc87)
+
 ## Use Cases
 
 Bobcat is ideal for:
