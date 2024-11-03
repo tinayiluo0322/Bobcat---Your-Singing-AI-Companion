@@ -5,6 +5,7 @@ import requests
 from pydub import AudioSegment
 from pydub.playback import play
 from dotenv import load_dotenv
+from libcam_cv import SimpleMoodDetector
 from speech_to_text import SpeechToText
 from text_to_response import TextToResponse
 from response_to_voice import ResponseToVoice
@@ -35,17 +36,17 @@ def play_song(audio_url):
         print(f"An error occurred while playing the song: {str(e)}")
 
 
-def generate_song(user_text, audio_url_container):
+def generate_song(user_text, detected_mood, audio_url_container):
     """Generate the song and return the audio URL."""
-    # Generate music details
+    # Generate music details based on user text and detected mood
+    user_context = f"The user looks like they are feeling {detected_mood} by their face. {user_text}"
     generated_prompt, singer_name, music_genre = generate_music_details(
-        user_text, OPENAI_API_KEY
+        user_context, OPENAI_API_KEY
     )
     if not all([generated_prompt, singer_name, music_genre]):
         print("Failed to generate music details.")
         audio_url_container.append(None)  # Append None for consistency
         return
-        # Display generated details
     else:
         print("Generated Prompt: ", generated_prompt)
         print("Singer Name:", singer_name)
@@ -55,7 +56,7 @@ def generate_song(user_text, audio_url_container):
     gpt_description_prompt = (
         f"The song should feature the singing voice closest to {singer_name} "
         f"in the style of {music_genre}. {generated_prompt}. "
-        "Limit the song generated to be as shortest in length as possible."
+        "Limit the song generated to be as short as possible."
     )
 
     # Start song generation
@@ -83,11 +84,18 @@ def main():
     stt = SpeechToText()
     ttr = TextToResponse()
     rtv = ResponseToVoice()
+    mood_detector = SimpleMoodDetector()
 
     print("Starting the speech-to-song pipeline system...")
-    print("Please speak your message...")
+    print("Detecting mood and listening for your message...")
 
     try:
+        # Detect mood
+        detected_mood = mood_detector.get_mood()
+        if not detected_mood:
+            print("Could not detect mood. Defaulting to 'neutral'.")
+            detected_mood = "neutral"  # Default mood if detection fails
+
         # 1. Speech to Text
         user_text = stt.get_user_text()
         if user_text is None:
@@ -98,9 +106,9 @@ def main():
         # 2. Prepare a container for the song URL
         audio_url_container = []  # List to hold the audio URL
 
-        # 3. Start song generation in a separate thread
+        # 3. Start song generation in a separate thread with mood input
         song_thread = threading.Thread(
-            target=generate_song, args=(user_text, audio_url_container)
+            target=generate_song, args=(user_text, detected_mood, audio_url_container)
         )
         song_thread.start()
 
