@@ -24,6 +24,11 @@ Bobcat bridges the gap between practical tech and human warmth, delivering real-
 - **Audio Core HAT WM8060**: Delivers high-quality sound for an immersive experience.
 - **Integrated Microphone and Speakers**: Enable voice interaction and audio feedback.
 - **Lithium Battery Module**: Ensures portability and long-lasting operation.
+  
+![IMG_7809](https://github.com/user-attachments/assets/d5cd48e0-83f5-475f-8425-2ef517bef046)
+
+![IMG_7804](https://github.com/user-attachments/assets/26ece8cb-632c-4c66-ae8e-a74af9e1eb8a)
+
 
 ### Software Stack
 - **DeepFace**: Facial recognition for real-time mood analysis.
