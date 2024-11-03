@@ -1,6 +1,6 @@
 # Duke AI Hackathon 2024
 
-# Bobcat: The Singing AI Companion
+# Bobcat: Your Singing AI Companion
 
 Welcome to Bobcat, your personal, artistic, AI-powered friend who listens, responds, and creates music tailored just for you. Bobcat goes beyond traditional gadgets to become a genuine companion, blending empathy and creativity into an interactive experience.
 
@@ -72,8 +72,7 @@ This project is licensed under the [MIT License](LICENSE.md).
 
 ## Acknowledgments
 
-Thank you for exploring Bobcat! We hope you find joy, comfort, and inspiration with this singing AI companion, and welcome to a new era of AI companionship.
+We are deeply grateful to Duke University for organizing such a competitive and wonderfully joyful hackathon. We also extend our heartfelt thanks to the sponsors who made this event possible.
 
----
+Thank you for exploring Bobcat! We hope it brings you joy, comfort, and inspiration as your singing AI companion. Welcome to a new era of AI companionship!
 
-This README provides a comprehensive overview, covering Bobcat’s core features, hardware, software stack, use cases, and future plans. Let me know if you’d like to include more technical details or specific installation instructions.
