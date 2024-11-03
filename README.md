@@ -25,9 +25,10 @@ Bobcat bridges the gap between practical tech and human warmth, delivering real-
 - **Integrated Microphone and Speakers**: Enable voice interaction and audio feedback.
 - **Lithium Battery Module**: Ensures portability and long-lasting operation.
   
-![IMG_7809](https://github.com/user-attachments/assets/d5cd48e0-83f5-475f-8425-2ef517bef046)
+![8824226c-7df4-4deb-801f-a5d7bec6c1b3](https://github.com/user-attachments/assets/f6d59a7f-ecca-4b50-bf5b-1b0ae319314c)
 
-![IMG_7804](https://github.com/user-attachments/assets/26ece8cb-632c-4c66-ae8e-a74af9e1eb8a)
+
+
 
 
 ### Software Stack
