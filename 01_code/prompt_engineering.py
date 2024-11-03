@@ -7,6 +7,7 @@ import requests
 # Set up your OpenAI API key
 openai.api_key = "your_openai_api_key"
 
+
 def generate_music_details(context, open_ai_key):
 
     openai.api_key = open_ai_key
@@ -22,24 +23,18 @@ def generate_music_details(context, open_ai_key):
         "Prompt: {Insert Prompt here}\n"
         "Singer_Name: {Insert Singer_Name here} (if not mentioned, use a popular singer's name that is suitable for the song style)\n"
         "Music_genre: {Insert Music_genre here}"
-)
-
+    )
 
     # Define the API endpoint
     url = "https://api.openai.com/v1/chat/completions"
 
     # Define the data for the POST request
-    data = {
-        "model": "gpt-3.5-turbo",
-        "messages": [
-            {"role": "user", "content": prompt}
-        ]
-    }
+    data = {"model": "gpt-3.5-turbo", "messages": [{"role": "user", "content": prompt}]}
 
     # Define the headers
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer {openai.api_key}"
+        "Authorization": f"Bearer {openai.api_key}",
     }
 
     # Send the POST request
@@ -48,13 +43,37 @@ def generate_music_details(context, open_ai_key):
     # Check if the request was successful
     if response.status_code == 200:
         response_data = response.json()
-        response_content = response_data['choices'][0]['message']['content']
-        
+        response_content = response_data["choices"][0]["message"]["content"]
+
         # Extract the values from the response content
-        prompt_line = next(line for line in response_content.split('\n') if line.startswith('Prompt:')).replace('Prompt: ', '').strip()
-        singer_name_line = next(line for line in response_content.split('\n') if line.startswith('Singer_Name:')).replace('Singer_Name: ', '').strip()
-        music_genre_line = next(line for line in response_content.split('\n') if line.startswith('Music_genre:')).replace('Music_genre: ', '').strip()
-        
+        prompt_line = (
+            next(
+                line
+                for line in response_content.split("\n")
+                if line.startswith("Prompt:")
+            )
+            .replace("Prompt: ", "")
+            .strip()
+        )
+        singer_name_line = (
+            next(
+                line
+                for line in response_content.split("\n")
+                if line.startswith("Singer_Name:")
+            )
+            .replace("Singer_Name: ", "")
+            .strip()
+        )
+        music_genre_line = (
+            next(
+                line
+                for line in response_content.split("\n")
+                if line.startswith("Music_genre:")
+            )
+            .replace("Music_genre: ", "")
+            .strip()
+        )
+
         # Return the extracted values
         return prompt_line, singer_name_line, music_genre_line
     else:
