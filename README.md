@@ -1,4 +1,4 @@
-# Bobcat!: Your Singing AI Companion 🎵🤖
+# Bobcat! - Your Singing AI Companion 🎵🤖
 
 Bobcat is not just a gadget—it's your personal, empathetic AI friend that listens, responds, and creates songs tailored to your emotions. Conceived during Duke AI Hackathon 2024, this innovative project merges art, technology, and human connection.
 
