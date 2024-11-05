@@ -1,5 +1,10 @@
 # Bobcat! - Your Singing AI Companion 🎵🤖
+🏆 **2nd Grand Prize Winner**  
+🏆 **Best Art, Media & Design Prize**  
+Awarded at the **Duke AI Hackathon 2024**
 
+**Sponsors**: OpenAI, Microsoft, decorX, 2ndF, Fiscus, Inquisite, ticketdude, Quotient AI, Red Bull
+---
 Bobcat is not just a gadget—it's your personal, empathetic AI friend that listens, responds, and creates songs tailored to your emotions and personal story. Conceived during Duke AI Hackathon 2024, this innovative project merges art, technology, and human connection.
 
 ## Presentation & WriteUp
