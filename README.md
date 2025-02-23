@@ -6,6 +6,7 @@ Bobcat is not just a gadget—it's your personal, empathetic AI friend that list
 Awarded at the **Duke AI Hackathon 2024**
 
 🏆 **Best Presentation Award**
+
 Awarded at the **Computer Vision Projects Expo 2024**
 
 **Sponsors**: OpenAI, Microsoft, decorX, 2ndF, Fiscus, Inquisite, ticketdude, Quotient AI, Red Bull
